@@ -1,0 +1,46 @@
+{
+    "budgets": [
+        {
+            "monthly": "July",
+            "budget": 100,
+            "actual": 75,
+            "id": 1
+
+        },
+        {
+            "monthly": "Agustus",
+            "budget": 75,
+            "actual": 76,
+            "id": 2
+
+        },
+        {
+            "monthly": "September",
+            "budget": 80,
+            "actual": 78,
+            "id": 3
+
+        },
+        {
+            "monthly": "Oktorber",
+            "budget": 100,
+            "actual": 105,
+            "id": 4
+
+        },
+        {
+            "monthly": "November",
+            "budget": 95,
+            "actual": 80,
+            "id": 5
+
+        },
+        {
+            "monthly": "Desember",
+            "budget": 100,
+            "actual": 95,
+            "id": 6
+
+        }
+    ]
+}
