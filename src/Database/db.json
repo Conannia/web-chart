@@ -2,8 +2,8 @@
     "budgets": [
         {
             "monthly": "July",
-            "budget": 100,
-            "actual": 75,
+            "budget": 10,
+            "actual": 5,
             "id": 1
 
         },

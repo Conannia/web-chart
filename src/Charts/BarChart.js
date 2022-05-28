@@ -10,39 +10,39 @@ ChartJS.register(
 
 const BarChart = () => {
 
-    // const [chart, setChart] = useState([])
+    const [chart, setChart] = useState([])
 
-    // var baseUrl = "https://api.coinranking.com/v2/coins/?limit=10"
-    // var proxyUrl = 'https://cors-anywhere.herokuapp.com/'
-    // var apiKey =
-    // "coinrankingbd5d65cf6bdb62c488dfd44a6841cf32b7136bccc8788b3a"
+    var baseUrl = "http://localhost:2000/budgets"
 
-    // useEffect(() => {
-    //     const fetchCoins = async () => {
-    //         await fetch(`${proxyUrl}${baseUrl}`, {
-    //             method: 'GET',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
+    useEffect(() => {
+        const fetchBudgets = async () => {
+            await fetch(`${baseUrl}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
     //                 'x-access-token': `${apiKey}`,
-    //                 'Access-Control-Allow-Origin': '*'
-    //             }
-    //         }).then((response) => {
-    //             response.json().then((json)=> {
-    //                 console.log(json)
-    //                 setChart(json.data)
-    //             })
-    //         }).catch(error => {
-    //             console.log(error);
-    //         })
-    //     }
-    //     fetchCoins()
-    // }, [baseUrl, proxyUrl, apiKey])
+                    'Access-Control-Allow-Origin': '*'
+                }
+            }).then((response) => {
+                response.json().then((json)=> {
+                    console.log(json)
+                    setChart(json)
+                })
+            }).catch(error => {
+                console.log(error);
+            })
+        }
+        fetchBudgets()
+    }, [baseUrl])
+
+    console.log("chart", chart)
 
     var data = {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        // labels: chart?.budgets?.map(x => x.monthly),
+        labels: chart?.map(x => x.monthly),
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: `${chart?.length} budgets`,
+            data: chart?.map(x => x.actual),
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -59,11 +59,15 @@ const BarChart = () => {
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)'
             ],
-            borderWidth: 1
+            borderWidth: 1,
+            // Rotations: chart?.map(x => x.monthly),
         }]
 
 
     }
+
+    console.log("data", data.labels)
+    
     var options = {
         maintainAspectRatio: false,
         scales: {
