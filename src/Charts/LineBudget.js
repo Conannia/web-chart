@@ -7,33 +7,73 @@ ChartJS.register(
     CategoryScale,
     LinearScale,
     LineElement,
-    PointElement
+    PointElement,
 )
 
 const LineBudget = () => {
 
+    const [chart, setChart] = useState([])
+
+    var baseUrl = "http://localhost:2000/budgets"
+
+    useEffect(() => {
+        const fetchBudgets = async () => {
+            await fetch(`${baseUrl}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    //                 'x-access-token': `${apiKey}`,
+                    'Access-Control-Allow-Origin': '*'
+                }
+            }).then((response) => {
+                response.json().then((json) => {
+                    console.log(json)
+                    setChart(json)
+                })
+            }).catch(error => {
+                console.log(error);
+            })
+        }
+        fetchBudgets()
+    }, [baseUrl])
+
+    console.log("chart", chart)
+
     var data = {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: chart?.map(x => x.monthly),
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
+            label: `${chart?.length} budgets`,
+            data: chart?.map(x => x.budget),
+            backgroundColor: 'rgba(225, 99, 132, 0.2)',
+            borderColor: 'rgba(225, 99, 132, 1)',
+            borderWidth: 3,
+            fill: true,
+            fillColor: 'rgba(225, 66, 132, 0.2)',
+            // tension: 0.4,
+            // segment: {
+            //     backgroundColor: 'green',
+            //     borderColor: 'yellow',
+            // },
+            // fillColor: 'rgba(255, 99, 132, 0.2)',
+            // fill: {
+            //     target: 'origin',
+            //     above: 'rgb(255, 0, 0)',   // Area will be red above the origin
+            //     below: 'rgb(0, 0, 255)',    // And blue below the origin
+            // },
+            // disabeled: false,
+        },
+        {
+
+            label: `${chart?.length} actual`,
+            data: chart?.map(x => x.actual),
+            backgroundColor: 'blue',
+            borderColor: 'green',
+            borderWidth: 3,
+            fill: true,
+            fillColor: 'green',
+            
+
+
         }]
 
 
@@ -47,20 +87,22 @@ const LineBudget = () => {
         },
         legend: {
             labels: {
-                fontSize: 26
+                fontSize: 26,
+                fill: true,
+                fontColor: 'green'
             }
         }
     }
-    
 
 
-    return(
+
+    return (
         <div>
-        <Line
-            data={data}
-            height={400}
-            options={options}
-        />
+            <Line
+                data={data}
+                height={400}
+                options={options}
+            />
         </div >
     )
 }

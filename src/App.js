@@ -5,6 +5,7 @@ import LineChart from './Charts/LineChart';
 import PieChart from './Charts/PieChart';
 import Dankmemes from './Charts/Dankmemes';
 import LineBudget from './Charts/LineBudget';
+import SalaryChart from './Charts/SalaryChart';
 
 function App() {
   return (
@@ -12,8 +13,10 @@ function App() {
       <h1>Monthly Budget Analys - Portofolio Views</h1>
       <div>
         {/* <LineChart /> */}
+        <BarChart />
         <LineBudget />
         <PieChart />
+        <SalaryChart/>
       </div>
 
     </div>
