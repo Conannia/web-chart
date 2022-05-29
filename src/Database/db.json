@@ -2,43 +2,43 @@
     "budgets": [
         {
             "monthly": "July",
-            "budget": 10,
-            "actual": 5,
+            "budget": 40,
+            "actual": 20,
             "id": 1
 
         },
         {
             "monthly": "Agustus",
-            "budget": 75,
-            "actual": 76,
+            "budget": 50,
+            "actual": 35,
             "id": 2
 
         },
         {
             "monthly": "September",
-            "budget": 80,
-            "actual": 78,
+            "budget": 25,
+            "actual": 30,
             "id": 3
 
         },
         {
             "monthly": "Oktorber",
-            "budget": 100,
-            "actual": 105,
+            "budget": 50,
+            "actual": 40,
             "id": 4
 
         },
         {
             "monthly": "November",
-            "budget": 95,
-            "actual": 80,
+            "budget": 35,
+            "actual": 50,
             "id": 5
 
         },
         {
             "monthly": "Desember",
-            "budget": 100,
-            "actual": 95,
+            "budget": 50,
+            "actual": 40,
             "id": 6
 
         }

@@ -3,12 +3,12 @@ import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement
 import { Line } from "react-chartjs-2";
 import axios from "axios";
 
-// ChartJS.register(
-//     CategoryScale,
-//     LinearScale,
-//     LineElement,
-//     PointElement
-// )
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    LineElement,
+    PointElement
+)
 
 const LineChart = () => {
     const [chartData, setChartData] = useState({});

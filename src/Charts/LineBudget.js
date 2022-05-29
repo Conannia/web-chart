@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement } from "chart.js";
-import { Line } from "react-chartjs-2";
+import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, PolarAreaController, ArcElement, ScatterController, Filler } from "chart.js";
+import { Line, PolarArea } from "react-chartjs-2";
 import axios from "axios";
 
 ChartJS.register(
@@ -8,6 +8,10 @@ ChartJS.register(
     LinearScale,
     LineElement,
     PointElement,
+    Filler,
+
+
+
 )
 
 const LineBudget = () => {
@@ -44,37 +48,34 @@ const LineBudget = () => {
         datasets: [{
             label: `${chart?.length} budgets`,
             data: chart?.map(x => x.budget),
-            backgroundColor: 'rgba(225, 99, 132, 0.2)',
-            borderColor: 'rgba(225, 99, 132, 1)',
-            borderWidth: 3,
+            backgroundColor: 'rgba(55, 226, 213, 0.3)',
+            borderColor: 'rgba(55, 226, 213, 0.4)',
+            borderWidth: 2,
             fill: true,
-            fillColor: 'rgba(225, 66, 132, 0.2)',
-            // tension: 0.4,
-            // segment: {
-            //     backgroundColor: 'green',
-            //     borderColor: 'yellow',
-            // },
-            // fillColor: 'rgba(255, 99, 132, 0.2)',
-            // fill: {
-            //     target: 'origin',
-            //     above: 'rgb(255, 0, 0)',   // Area will be red above the origin
-            //     below: 'rgb(0, 0, 255)',    // And blue below the origin
-            // },
-            // disabeled: false,
+            pointBackgroundColor: 'white',
+            // PointBorderColor: 'white',
+            pointBorderWidth: 10,
+            pointColor: 'white',
+
+
         },
         {
 
             label: `${chart?.length} actual`,
             data: chart?.map(x => x.actual),
-            backgroundColor: 'blue',
-            borderColor: 'green',
-            borderWidth: 3,
+
+            backgroundColor: 'rgb(180, 225, 151, 1.2)',
+            borderColor: 'rgb(180, 225, 151, 0.6)',
+            borderWidth: 2,
             fill: true,
-            fillColor: 'green',
+            pointBackgroundColor: 'white',
+            // pointFillColor: 'white',
+            pointBorderWidth: 10,
             
 
 
-        }]
+
+        },]
 
 
     }
@@ -88,10 +89,9 @@ const LineBudget = () => {
         legend: {
             labels: {
                 fontSize: 26,
-                fill: true,
-                fontColor: 'green'
             }
-        }
+        },
+
     }
 
 
@@ -102,7 +102,10 @@ const LineBudget = () => {
                 data={data}
                 height={400}
                 options={options}
+
             />
+
+
         </div >
     )
 }
