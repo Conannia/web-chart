@@ -13,10 +13,11 @@ function App() {
       <h1>Monthly Budget Analys - Portofolio Views</h1>
       <div>
         {/* <LineChart /> */}
-        <BarChart />
+        
         <LineBudget />
-        <PieChart />
-        <SalaryChart/>
+        <BarChart />
+        {/* <PieChart />
+        <SalaryChart/> */}
       </div>
 
     </div>
