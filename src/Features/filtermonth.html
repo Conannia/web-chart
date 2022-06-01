@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Month in chart js</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      .chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #1A1A1A;
+        color: rgba(255, 26, 104, 1);
+      }
+      .chartMenu p {
+        padding: 10px;
+        font-size: 20px;
+      }
+      .chartCard {
+        width: 100vw;
+        height: calc(100vh - 40px);
+        background: rgba(255, 26, 104, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartBox {
+        width: 700px;
+        padding: 20px;
+        border-radius: 20px;
+        border: solid 3px rgba(255, 26, 104, 1);
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chartMenu">
+      <p>WWW.CHARTJS3.COM (Chart JS 3.8.0)</p>
+    </div>
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+        <input onchange="filterData()" type="month" id="startmonth" value="January 2022">
+        <input onchange="filterData()" type="month" id="endmonth" value="December 2022">
+        <!-- <button onchange="filterData()">start month</button> -->
+        
+      </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    // setup 
+    // var d = new Date();
+    // d.setMonth(d.getMonth() - 1);
+    const months = ['2022-01', '2022-02', '2022-03', '2022-04', '2022-05', '2022-06', '2022-07', '2022-08', '2022-09', '2022-10', '2022-11', '2022-12'];
+    const datapoints = [1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10 ,11 ,12];
+    const data = {
+      labels: months,
+      datasets: [{
+        label: 'Weekly Sales',
+        data: datapoints,
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(0, 0, 0, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 26, 104, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(0, 0, 0, 1)'
+        ],
+        borderWidth: 1
+      }]
+    };
+
+    // config 
+    const config = {
+      type: 'bar',
+      data,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+
+    function filterData(){
+        const months2 = [...months];
+        console.log("bulan", months2)
+        const startmonth = document.getElementById('startmonth');
+        console.log("startmonth", startmonth)
+        console.log("startmonth.value", startmonth.value)
+        console.log("moths2", months2)
+        const endmonth = document.getElementById('endmonth');
+        
+        // get the index number in array --> mulai erro
+        const indexstartmonth = months2.indexOf(startmonth.value);
+        const indexendmonth = months2.indexOf(endmonth.value);
+        console.log("startmonth",indexstartmonth);
+        // console.log(indexendmonth);
+
+        //coba
+        const start = startmonth.value;
+        const end = endmonth.value;
+        const indexStart = months2.indexOf(start);
+        const indexEnd = months2.indexOf(end);
+
+        // slice coba
+        const filterMonth = months2.slice(indexStart, indexEnd + 1);
+        console.log("filterMonth", filterMonth);
+
+
+         // slice the array (pie) only showing the selected section / slice
+        // const filterMonth = months2.slice(indexstartmonth, indexendmonth + 1);
+        // console.log("filter", filterMonth);
+
+        //replace the labels in the chart
+
+        myChart.config.data.labels = filterMonth;
+
+        // datapoint
+
+        const datapoints2 = [...datapoints];
+        const filterDatapoint = datapoints2.slice(indexstartmonth, indexendmonth + 1);
+        myChart.config.data.datasets[0].data = filterDatapoint;
+
+        myChart.update();
+
+    }
+    </script>
+
+  </body>
+</html>

@@ -3,6 +3,7 @@ import ReviewsProvider from './ReviewsProvider';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
+
 const ReviewsBar = (props) => {
   const { score } = props;
 

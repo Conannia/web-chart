@@ -5,42 +5,179 @@
             "budget": 40,
             "actual": 20,
             "id": 1
-
         },
         {
             "monthly": "Agustus",
             "budget": 50,
             "actual": 35,
             "id": 2
-
         },
         {
             "monthly": "September",
             "budget": 25,
             "actual": 30,
             "id": 3
-
         },
         {
             "monthly": "Oktorber",
             "budget": 50,
             "actual": 40,
             "id": 4
-
         },
         {
             "monthly": "November",
             "budget": 35,
             "actual": 50,
             "id": 5
-
         },
         {
             "monthly": "Desember",
             "budget": 50,
             "actual": 40,
             "id": 6
-
+        }
+    ],
+    "portofolios": [
+        {
+            "order": "1st",
+            "x": 100000,
+            "fill": "#8884d8",
+            "id":1
+        },
+        {
+            "order": "2nd",
+            "x": 122000,
+            "fill": "#83a6ed",
+            "id":2
+        },
+        {
+            "order": "3rd",
+            "x": 123000,
+            "fill": "#8dd1e1",
+            "id":3
+        },
+        {
+            "order": "4th",
+            "x": 169000,
+            "fill": "#8884d8",
+            "id":4
+        },
+        {
+            "order": "5th",
+            "x": 96000,
+            "fill": "#82ca9d",
+            "id":5
+        }
+    ],
+    "numbers": [
+        {
+            "number": "1st",
+            "uv": 100000,
+            "pv": 50000,
+            "fill": "#8884d8",
+            "id":1
+        },
+        {
+            "number": "2nd",
+            "uv": 122000,
+            "pv": 53600,
+            "fill": "#83a6ed",
+            "id":2
+        },
+        {
+            "number": "3rd",
+            "uv": 123000,
+            "pv": 56300,
+            "fill": "#8dd1e1",
+            "id":3
+        },
+        {
+            "number": "4th",
+            "uv": 169000,
+            "pv": 57500,
+            "fill": "#8884d8",
+            "id":4
+        },
+        {
+            "number": "5th",
+            "uv": 96000,
+            "pv": 53600,
+            "fill": "#8884d8",
+            "id":5
+        }
+    ],
+    "actuals": [
+        {
+            "monthly": "2022-01",
+            "budget": 40,
+            "actual": 20,
+            "id": 1
+        },
+        {
+            "monthly": "2022-02",
+            "budget": 50,
+            "actual": 35,
+            "id": 2
+        },
+        {
+            "monthly": "2022-03",
+            "budget": 25,
+            "actual": 30,
+            "id": 3
+        },
+        {
+            "monthly": "2022-04",
+            "budget": 50,
+            "actual": 40,
+            "id": 4
+        },
+        {
+            "monthly": "2022-05",
+            "budget": 35,
+            "actual": 50,
+            "id": 5
+        },
+        {
+            "monthly": "2022-06",
+            "budget": 50,
+            "actual": 40,
+            "id": 6
+        },
+        {
+            "monthly": "2022-07",
+            "budget": 40,
+            "actual": 20,
+            "id": 1
+        },
+        {
+            "monthly": "2022-08",
+            "budget": 50,
+            "actual": 35,
+            "id": 2
+        },
+        {
+            "monthly": "2022-09",
+            "budget": 25,
+            "actual": 30,
+            "id": 3
+        },
+        {
+            "monthly": "2022-10",
+            "budget": 50,
+            "actual": 40,
+            "id": 4
+        },
+        {
+            "monthly": "2022-11",
+            "budget": 35,
+            "actual": 50,
+            "id": 5
+        },
+        {
+            "monthly": "2022-12",
+            "budget": 50,
+            "actual": 40,
+            "id": 6
         }
     ]
 }

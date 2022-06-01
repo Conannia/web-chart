@@ -16,11 +16,11 @@ ChartJS.register(
 
 )
 
-const LineBudget = () => {
+const LineBudgetFilter = () => {
 
     const [chart, setChart] = useState([])
 
-    var baseUrl = "http://localhost:2000/budgets"
+    var baseUrl = "http://localhost:2000/actuals"
 
     useEffect(() => {
         const fetchBudgets = async () => {
@@ -98,6 +98,9 @@ const LineBudget = () => {
 
     return (
         <div>
+            <div>
+                {/* <InputGroup onchange="filterData()" type="month" id="startmonth" value="January 2022">Cek</InputGroup> */}
+            </div>
             <Line
                 data={data}
                 height={400}
@@ -110,4 +113,4 @@ const LineBudget = () => {
     )
 }
 
-export default LineBudget;
+export default LineBudgetFilter;

@@ -13,6 +13,8 @@ import DetailInformation from './Circular/Detail';
 import RadialBarChart from './Charts/CobaRadial';
 import CobaRadial from './Charts/CobaRadial';
 import Example from './Charts/CobaRadial';
+import RadialBudget from './Charts/RadialBudget';
+import RadialFunction from './Charts/RadialFunctions';
 
 
 
@@ -20,10 +22,12 @@ function App() {
   return (
     <div className="App">
       <h1>Monthly Budget Analys - Portofolio Views</h1>
-      <div>
+      <div className='m-3'>
   
         <LineBudget/>
         <CobaRadial/>
+        <RadialBudget />
+        <RadialFunction />
 
       </div>
 
